@@ -1,6 +1,15 @@
 from abc import ABC, abstractmethod
 
-class Band: 
+class Band:
+    """
+    instances to track of all Band instances created
+    __init__ to Initialize a new instance of the Band
+    __str__ Returns the name of the band as a string.
+    __repr__ Returns a string representation of the Band instance.
+    play_solos(s: Returns a list of solos played by the band's members.
+    to_list(cls): Returns a list of all Band instances created
+    """    
+ 
     instances =[]
     def __init__(self,name,members) :
         self.name=name  
@@ -24,11 +33,28 @@ class Band:
          return cls.instances
 
 class Musician (ABC):
+    """
+    __init__ Initializes a new instance of the Musician class with the specified name.
+    
+    """
     def __init__(self,name) :
-        self.name=name  
+        self.name=name 
+    def __str__(self): 
+        return self.name
+    
+    def __repr__(self): 
+        return f"Musician . Name = {self.name}" 
 
 
 class Guitarist (Musician):
+    """
+     __init__ Initializes a new instance of the Guitarist class with the specified name.
+     get_instrument  Returns the instrument played by the guitarist, which is the guitar.
+     play_solo(self): Plays a face melting guitar solo.
+     __str__(self): Returns a string representation of the Guitarist instance.
+     __repr__(self): Returns a string representation of the Guitarist instance.
+    
+    """
     def __init__(self, name):
         super().__init__(name)
 
@@ -45,6 +71,14 @@ class Guitarist (Musician):
 
 
 class Bassist (Musician):
+    """
+     __init__ Initializes a new instance of the Bassist class with the specified name.
+     get_instrument  Returns the instrument played by the Bassist, which is the bass.
+     play_solo(self): Plays a bom bom buh bom.
+     __str__(self): Returns a string representation of the Bassist instance.
+     __repr__(self): Returns a string representation of the Bassist instance.
+    
+    """
     def __init__(self, name):
         super().__init__(name)
 
@@ -59,6 +93,15 @@ class Bassist (Musician):
         return f"Bassist instance. Name = {self.name}"
     
 class Drummer(Musician):
+
+    """
+     __init__ Initializes a new instance of the Drummer class with the specified name.
+     get_instrument  Returns the instrument played by the Drummer, which is the bass.
+     play_solo(self): Plays a rattle boom crash.
+     __str__(self): Returns a string representation of the Drummer instance.
+     __repr__(self): Returns a string representation of the Drummer instance.
+    
+    """
     def __init__(self, name):
         super().__init__(name)
     def get_instrument(self):
